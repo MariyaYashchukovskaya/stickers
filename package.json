@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gromalex/template-webpack.git"
+    "url": "git+https://github.com/MariyaYashchukovskaya/template-webpack.git"
   },
-  "author": "Alexey",
+  "author": "Mariya",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gromalex/template-webpack/issues"
+    "url": "https://github.com/MariyaYashchukovskaya/template-webpack/issues"
   },
-  "homepage": "https://github.com/gromalex/template-webpack#readme",
+  "homepage": "https://github.com/MariyaYashchukovskaya/template-webpack#readme",
   "devDependencies": {
     "css-loader": "^6.6.0",
     "eslint": "^7.32.0",
