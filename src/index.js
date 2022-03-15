@@ -1,3 +1,4 @@
 import './scss/app.scss'
 
-console.log('Hello')
+import { Stickers } from './js/stickers'
+new Stickers()
