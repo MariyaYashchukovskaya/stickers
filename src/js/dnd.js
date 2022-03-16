@@ -40,11 +40,12 @@ class DnD {
   handleMouseMove({ clientX, clientY }) {
     // console.log('mousemove')
     this.setPosition(clientX, clientY)
+
+
   }
 
   handleMouseUp({clientX, clientY }) {
     // console.log('mouseup')
-
 
     document.removeEventListener('mousemove', this.handleMouseMove)
     this.setPosition(clientX, clientY)

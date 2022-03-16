@@ -88,6 +88,7 @@ class Stickers {
     new DnD(stickerElement)
 
 
+
     return stickerElement
   }
 

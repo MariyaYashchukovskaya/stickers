@@ -4,14 +4,22 @@
 // body {
 //   background: url('../../assets/images/cat@720x405.jpeg');
 // }
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+body{
+  position: relative;
+}
+
+
+
 #btnCreate {
+  position: fixed;
+  bottom:50px;
+  right: 50px;
   border-radius: 50%;
   font-size: 40px;
   width: 50px;
@@ -26,7 +34,10 @@
   width: 250px;
   height: 240px;
   padding: 15px;
+
 }
+
+
 
 .form-edit {
   display: none;
