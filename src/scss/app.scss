@@ -5,16 +5,37 @@
 //   background: url('../../assets/images/cat@720x405.jpeg');
 // }
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-#btnCreate{
+#btnCreate {
   border-radius: 50%;
   font-size: 40px;
   width: 50px;
   height: 50px;
   background-color: aquamarine;
+}
+
+
+.card {
+  background-color: pink;
+  position: absolute;
+  width: 250px;
+  height: 240px;
+  padding: 15px;
+}
+
+.form-edit {
+  display: none;
+}
+
+.card__edit .form-edit{
+display: block;
+}
+
+.card__edit .card__item{
+  display: none;
 }
