@@ -1,43 +1,63 @@
-// @import './title';
-
-
-// body {
-//   background: url('../../assets/images/cat@720x405.jpeg');
-// }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
+body {
   position: relative;
+  background: url('../../assets/images/bg_stick.jpg') left/auto no-repeat;
+  font-family: Arial, Helvetica, sans-serif;
+
 }
 
-
-
-#btnCreate {
+#formColor {
   position: fixed;
-  bottom:50px;
-  right: 50px;
-  border-radius: 50%;
-  font-size: 40px;
-  width: 50px;
-  height: 50px;
-  background-color: aquamarine;
-}
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  bottom: 70px;
+  right: 70px;
+  background-color: rgba(223, 217, 217, 0.596);
+  width: 320px;
+  height: 150px;
+  padding: 20px;
+  border-radius: 4px;
 
+  button {
+    align-self: flex-end;
+    border-radius: 50%;
+    font-size: 40px;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(65, 182, 139);
+    border: 2px solid black ;
+  }
+
+  select {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    padding: 7px 5px;
+    background-color:rgba(255, 250, 250, 0.8);
+    border-radius: 4px;
+
+    option{
+      padding: 5px;
+      font-size: 14px;
+    }
+  }
+}
 
 .card {
-  background-color: pink;
   position: absolute;
   width: 250px;
   height: 240px;
-  padding: 15px;
-
+  padding: 10px 15px 15px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius:4px
 }
-
-
 
 .form-edit {
   display: none;
@@ -45,8 +65,32 @@ body{
 
 .card__edit .form-edit{
 display: block;
+height: 150px;
+textarea{
+  width: 100%;
+  height: 50px;
+}
 }
 
 .card__edit .card__item{
   display: none;
+}
+
+.card__item{
+  justify-self: flex-start;
+  height: 150px;
+}
+
+.btnRemove{
+border-bottom: 1px dashed black;
+align-self: flex-end;
+  background:none;
+  border:none;
+  font-size: 20px;
+}
+
+time{
+  align-self: flex-end;
+  font-size: 14px;
+  color: grey;
 }

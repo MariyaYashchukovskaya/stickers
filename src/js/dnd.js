@@ -12,7 +12,7 @@ class DnD {
 
   constructor(element) {
     this.element = element
-
+    this.id=''
     this.init()
   }
 
@@ -23,24 +23,23 @@ class DnD {
     this.element.addEventListener('mouseup', this.handleMouseUp.bind(this))
   }
 
-  handleMouseDown({ clientX, clientY }) { // { clientX, clientY } = event
+  handleMouseDown({ clientX, clientY,target }) { // { clientX, clientY } = event
     // const clientX = event.clientX
     // const clientY = event.clientY
     // const { clientX, clientY } = event
     // console.log('mousedown')
 
     document.addEventListener('mousemove', this.handleMouseMove)
-
+    let { id }=target.dataset
+    this.id=id
     this.calcShifts(clientX, clientY)
     this.setPosition(clientX, clientY)
-
 
   }
 
   handleMouseMove({ clientX, clientY }) {
     // console.log('mousemove')
     this.setPosition(clientX, clientY)
-
 
   }
 
@@ -49,12 +48,16 @@ class DnD {
 
     document.removeEventListener('mousemove', this.handleMouseMove)
     this.setPosition(clientX, clientY)
+
+    let idElement=this.id
     let positionTop=this.position.top
     let positionLeft=this.position.left
+
     const customEvent = new CustomEvent('dnd.positionSet', {
-      detail: {positionTop,positionLeft}
+      detail: {positionTop,positionLeft,idElement}
     })
     window.dispatchEvent(customEvent)
+
   }
 
   calcShifts(x, y) {
@@ -72,9 +75,6 @@ class DnD {
 
     this.element.style.top = this.position.top + 'px'
     this.element.style.left = this.position.left + 'px'
-
-
-
 
   }
 }
