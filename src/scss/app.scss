@@ -79,6 +79,7 @@ textarea{
 .card__item{
   justify-self: flex-start;
   height: 150px;
+  overflow-wrap: break-word;
 }
 
 .btnRemove{

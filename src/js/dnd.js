@@ -23,15 +23,11 @@ class DnD {
     this.element.addEventListener('mouseup', this.handleMouseUp.bind(this))
   }
 
-  handleMouseDown({ clientX, clientY,target }) { // { clientX, clientY } = event
-    // const clientX = event.clientX
-    // const clientY = event.clientY
-    // const { clientX, clientY } = event
-    // console.log('mousedown')
+  handleMouseDown({ clientX, clientY,target }) {
+
 
     document.addEventListener('mousemove', this.handleMouseMove)
-    let { id }=target.dataset
-    this.id=id
+    this.id=target.dataset.id
     this.calcShifts(clientX, clientY)
     this.setPosition(clientX, clientY)
 

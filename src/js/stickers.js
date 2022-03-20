@@ -92,40 +92,7 @@ class Stickers {
     })
     let parent = target.closest('.card')
     parent.classList.remove('card__edit')
-    this.render(this.data)
-  }
-
-  buildStickerElement(data) {
-    const stickerElement = document.createElement('div')
-    stickerElement.classList.add('card')
-    stickerElement.setAttribute('data-id', data.id)
-    stickerElement.setAttribute('data-role', 'edit')
-
-    stickerElement.style.backgroundColor = data.color
-
-    const temlateSticker = `
-    <button class="btnRemove" data-id="${data.id}" data-role="remove">✕</button>
-        <div data-role="edit" class="card__item">${data.content}</div>
-        <form class="form-edit" data-id="${data.id}">
-        <textarea name="content" type="text">${data.content}</textarea>
-        <button type="submit" data-role="save" id="btnSave">Сохранить</button>
-        </form>
-    <time>${data.createdAt}</time>
-    `
-    stickerElement.innerHTML = temlateSticker
-    new DnD(stickerElement)
-
-    return stickerElement
-  }
-
-  handleSetDataPosition({ detail }) {
-    const { positionTop, positionLeft, idElement } = detail
-    this.data.forEach(item => {
-      if (item.id == idElement) {
-        item.top = positionTop
-        item.left = positionLeft
-      }
-    })
+    this.render(this.render)
   }
 
   handleRemoveSticker(event) {
@@ -140,14 +107,47 @@ class Stickers {
     this.render(this.data)
   }
 
-  render(data) {
+  buildStickerElement(data) {
+    const stickerElement = document.createElement('div')
+    stickerElement.classList.add('card')
+    stickerElement.setAttribute('data-id', data.id)
+    stickerElement.setAttribute('data-role', 'edit')
+    stickerElement.style.left = data.left + "px"
+    stickerElement.style.top = data.top + "px"
+
+    stickerElement.style.backgroundColor = data.color
+
+    const temlateSticker = `
+    <button class="btnRemove" data-id="${data.id}" data-role="remove">✕</button>
+        <div data-role="edit" data-id="${data.id}" class="card__item">${data.content}</div>
+        <form class="form-edit" data-id="${data.id}">
+        <textarea name="content" type="text">${data.content}</textarea>
+        <button type="submit" data-role="save" id="btnSave">Сохранить</button>
+        </form>
+    <time>${data.createdAt}</time>
+    `
+    stickerElement.innerHTML = temlateSticker
+    new DnD(stickerElement)
+
+    return stickerElement
+  }
+
+  handleSetDataPosition({ detail }) {
+    console.log(detail)
+    const { positionTop, positionLeft, idElement } = detail
+    this.data.forEach(item => {
+      if (item.id == idElement) {
+        item.top = positionTop
+        item.left = positionLeft
+      }
+    })
+  }
+
+    render(data) {
     this.containerElement.innerHTML = ''
     this.data.forEach(item => {
       const stickerElement = this.buildStickerElement(item)
       this.containerElement.append(stickerElement)
-
-      stickerElement.style.left = item.left + "px"
-      stickerElement.style.top = item.top + "px"
     })
   }
 
